@@ -1,0 +1,104 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{meupacote}[2014/08/24 Example LaTeX package]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[brazil]{babel}
+\RequirePackage{hyperref}
+\RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\RequirePackage{pgfplots}
+\RequirePackage{enumitem}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{import}
+
+\newcounter{instn}
+\setcounter{instn}{1}
+\newcommand{\instnum}{\arabic{instn}}
+
+\newcommand{\myline}[1]{
+    \emph{\textbf{#1)}}
+    \addtocounter{instn}{1}
+}
+
+\newenvironment{formula1}[8]{
+    IC(1-$\alpha$)\%= $\bar{x}$ $\pm$ Z*$\frac{\alpha}{2}$ * $\frac{\sigma}{\sqrt{N}}$
+                  
+    IC(#1)\% = #2 $\pm$ #3 * $\frac{#4}{\sqrt{#5}}$
+
+    IC(#1)\% = #2 $\pm$ #6
+
+    IC(#1)\% = [#7 ; #8]
+}
+
+\newenvironment{formula2}[8]{
+    IC(1-$\alpha$)\%= $\bar{x}$ $\pm$ $\tau_\frac{\alpha}{2}$ ; * n-1 $\frac{S}{\sqrt{n}}$
+                  
+    IC(#1)\% = #2 $\pm$ #3 * $\frac{#4}{\sqrt{#5}}$
+
+    IC(#1)\% = #2 $\pm$ #6
+
+    IC(#1)\% = [#7 ; #8]
+}
+
+\newenvironment{formula3}[8]{
+    IC(1-$\alpha$)\%= $\hat{P}$ $\pm$ $Z_\frac{\alpha}{2}$ * $\sqrt{\frac{\hat{P}*(1-\hat{P})}{n}}$
+
+    IC(#1)\% = #2 $\pm$ #3 * $\sqrt{\frac{#2*(#4)}{#5}}$ 
+
+    IC(#1)\% = #2 $\pm$ #6
+
+    IC(#1)\% = [#7 ; #8]
+}
+
+\newenvironment{formula4}[8]{
+    n = $\frac{\hat{P}*(1-\hat{P})}{(\frac{E}{Z_\frac{\alpha}{2}})^2}$
+
+    n = $\frac{#1(#2)}{(\frac{#3}{#4})^2}$
+
+    n = $\frac{#5}{#6}$
+
+    n = #7 $\approx$ #8 
+}
+
+\newenvironment{formula5}[6]{
+    n = $\frac{n}{1+ \frac{n}{N}}$
+
+    n = $\frac{#1}{1+\frac{#1}{#2}}$
+
+    n = $\frac{#3}{#4}$
+
+    n = #5 $\approx$ #6
+}
+
+\newenvironment{formula6}[6]{
+    n = $(Z_\frac{\alpha}{2} * \frac{\sigma}{E})^2$
+
+    n = $(#1 * \frac{#2}{#3})^2$
+
+    n = $(#4)^2$
+
+    n = #5 $\approx$ #6
+}
+
+\newenvironment{formula7}[6]{
+    #1 = $\frac{\hat{X}-\mu}{\frac{\sigma}{\sqrt{n}}}$
+
+    #1 = $\frac{#2 - #3}{\frac{#4}{\sqrt{#5}}}$
+
+    #1 = #6
+}
+
+\newenvironment{formula8}[6]{
+    #1 = $\frac{\hat{P}-P}{\frac{\sigma}{\sqrt{n}}}$
+
+    #1 = $\frac{#2 - #3}{\frac{#4}{\sqrt{#5}}}$
+
+    #1 = #6
+}
+
+\newenvironment{question}
+ {
+    \myline{\instnum} 
+    }
+    {
+ }

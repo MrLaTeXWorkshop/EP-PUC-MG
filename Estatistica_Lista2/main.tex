@@ -1,0 +1,954 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+\usepackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{statistics}
+
+\newcounter{instn}
+\setcounter{instn}{1}
+\newcommand{\instnum}{\arabic{instn}}
+
+\newcommand{\myline}[1]{
+    \emph{\textbf{#1)}}
+    \addtocounter{instn}{1}
+}
+
+\newenvironment{question}
+ {
+    \myline{\instnum} 
+    }
+    {
+ }
+
+%configurando identação e separação de parágrafos
+\parindent 1.27cm
+\parskip   6pt
+
+\setlength\parindent{0pt}
+
+%configurando os hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=green,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+%títulos,autor e data
+\title{\textbf{Lista 2 - Estatística}}
+\author{Gustavo Lopes Rodrigues}
+\date{2021}
+
+\begin{document}
+    
+    \maketitle
+
+    \section*{Respostas}
+
+    %------Questao1--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Considerando que uma pessoa com cabelo castanho foi escolhida,
+            (40\%), podemos achar a possibilidade dessa mesma pessoa ter olhos castanhos,
+            através da porcentagem de pessoas que tem olhos e cabelos castanhos, ou seja
+            \begin{equation}
+                \frac{15\%}{40\%} = \frac{3}{8} \rightarrow 37.5\%
+            \end{equation}
+
+            \item 25\% da população tem olhos castanhos, para descobrir quantas pessoas tem apenas 
+            cabelo castanho, diminui das pessoas que tem olhos e cabelo castanho \[25\% - 15\% = 10\%\]
+            Então, agora é só calcular a porcentagem da pessoa ter cabelo castanho, das pessoas que tem olhos
+            castanhos, ou seja.
+            \begin{equation}
+                \frac{10\%}{25\%} = \frac{2}{5} \rightarrow 40\%
+            \end{equation}
+
+            \item Usando dados das questões anteriores, podemos descobrir quantos por cento da população 
+            tem cabelo castanho e olhos castanhos, e descobrir o reverso: Quem não tem cabelo nem olho castanho.
+
+            10\% tem apenas olho castanho, para descobrir quantas pessoas tem apenas cabelo castanho, 
+            podemos descobrir diminuindo da população que tem cabelo castanho(40\%), com os 15\% das pessoas que tem
+            olhos e cabelo castanho.Com isso, chegamos a esses dados: 
+            \begin{center}
+                \textbf{25\%} apenas cabelo castanho, \textbf{10\%} apenas olho castanho, \textbf{15\%} olhos e cabelo castanho. 
+            \end{center}
+
+            Somando isso tudo, chegamos a 50\%, logo, a outra metade são as pessoas que não nem olhos nem cabelo castanho.
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao2--------------------------------------------------------------------------------%
+
+    \begin{question}
+
+        Considerando que todas as questões seguem o mesmo formato, para simplificar, irei já colocar aqui
+        como que se faz as três questões. 
+
+        Primeiro consideramos que: a pessoa irá retirar uma bola de B, se ao rolar um dado, o número for igual a 3 ou 6, 
+        caso contrário ela ira retirar de A. Dos 6 números do dado(espaço amostral), apenas dois irá permitir pegar uma bola de 
+        B, logo \[p(B) = \frac{2}{6}, p(A) = \frac{4}{6}\]
+
+        Depois, precisamos calcular a possibilidade de retirar uma bola de uma cor da urna A e B.
+        para isso, fazemos \[p(cor) = \frac{\text{n° de bolas de uma cor}}{\text{total de bolas na urna}}\]
+
+        Agora que finalmente possuímos os números, podemos fazer os cálculos, que consistem em multiplicar a chance de uma urna 
+        ser escolhida com a possibilidade de uma bola de tal cor ser escolhida, e somar isso com as mesmas possibilidades só que na 
+        outra urna. 
+
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Considerando que 3 das 8 bolas da urna B são vermelhas, assim como 5 das 16 bolas da urna A, 
+            é possível calcular a porcentagem a partir de: \\
+            \[
+                \frac{2}{6} * \frac{3}{8} = \frac{6}{48} \rightarrow \frac{1}{8} \\ 
+            \]
+
+            \[
+                \frac{4}{6} * \frac{5}{16} = \frac{20}{96} \rightarrow \frac{5}{24}    
+            \]
+            \\
+            Agora é só somar as duas possibilidades: 
+            \begin{equation}
+                \frac{1}{8} + \frac{5}{24} = \frac{3+5}{24} = \frac{8}{24} \rightarrow \frac{1}{3} 
+            \end{equation}
+
+            \item Considerando que 5 das 8 bolas da urna B são brancas, assim como 3 das 16 bolas da urna A, 
+            é possível calcular a porcentagem a partir de: \\
+            \[
+                \frac{2}{6} * \frac{5}{8} = \frac{10}{48} \rightarrow \frac{5}{24} \\ 
+            \]
+
+            \[
+                \frac{4}{6} * \frac{3}{16} = \frac{12}{96} \rightarrow \frac{1}{8}    
+            \]
+            \\
+            Agora é só somar as duas possibilidades: 
+            \begin{equation}
+                \frac{5}{24} + \frac{1}{8} = \frac{5+3}{24} = \frac{8}{24} \rightarrow \frac{1}{3} 
+            \end{equation}
+
+            \item Considerando que 0 das 8 bolas da urna B são azuis, precisamos então apenas calcular
+            a possibilidade de uma das 8 bolas azuis ser escolhida na urna A: \\
+            \begin{equation}
+                \frac{4}{6} * \frac{8}{16} = \frac{32}{96} \rightarrow \frac{1}{3}    
+            \end{equation}
+            \\
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao3--------------------------------------------------------------------------------%
+
+    \begin{question}
+
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item 4 das 9 cartas da caixa A são pares, enquanto que apenas 2 das 5 cartas da caixa B são pares.
+            Considerando ainda que a escolha de caixa é aleatório(logo 50\% de chance de cair em uma das duas caixas) e 
+            que ao pegar uma carta par, a pessoa irá pegar a mesma caixa novamente.
+            \[
+                \frac{1}{2}*(\frac{4}{9} * \frac{3}{8}) = \frac{12}{144} \rightarrow \frac{1}{12}
+            \]
+            \[
+                \frac{1}{2}*(\frac{2}{5} * \frac{1}{4}) = \frac{2}{40} \rightarrow \frac{1}{20}
+            \]
+
+            Agora é só somar os dois casos 
+            \begin{equation}
+                \frac{1}{12} + \frac{1}{20} = \frac{5+3}{60} = \frac{8}{60} \rightarrow \frac{2}{15}
+            \end{equation}
+            \item Usando os dados encontrados na última questão, a chance de conseguir duas pares na caixa A é de 
+            $\frac{1}{12}$, para descobrir se as cartas parem vieram da A, precisa-se fazer a divisão da probabilidade de A,
+            com a probabilidade de A e B, que já foi calculado anteriormente.
+            \begin{equation}
+                \frac{\frac{1}{12}}{\frac{2}{15}} = \frac{1 * 15}{12 * 2} = \frac{15}{24} \rightarrow \frac{5}{8}
+            \end{equation}
+
+            \item Basicamente é apenas fazer o cálculo feito na letra \textbf{a)}, porém com números ímpares em vez de pares, e agora 
+            em vez de tirar outra carta da mesma caixa, vai ser da outra caixa 
+            \[
+                \frac{1}{2}*(\frac{5}{9} * \frac{3}{5}) = \frac{15}{90} \rightarrow \frac{1}{6}
+            \]
+            \[
+                \frac{1}{2}*(\frac{3}{5} * \frac{5}{9}) = \frac{15}{90} \rightarrow \frac{1}{6}
+            \]
+
+            Agora é só somar os dois casos 
+            \begin{equation}
+                \frac{1}{6} + \frac{1}{6} = \frac{1+1}{6} = \frac{2}{6} \rightarrow \frac{1}{3}
+            \end{equation}
+               
+        \end{enumerate}
+    \end{question}
+
+     %------Questao4--------------------------------------------------------------------------------%
+
+    \newpage 
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Lembrando que uma das moedas possui duas caras(moeda viciada), logo 
+            fazemos multiplicações sucessivas e por fim "inverte" o valor, para encontrar a possibilidade 
+
+            \[
+                1 - (\frac{1}{2}*(1 * \frac{1}{2} + \frac{1}{2} * \frac{1}{2}))   
+            \]
+            \begin{equation}
+                1 - (\frac{1}{2} * \frac{3}{4}) = \frac{8}{8} - \frac{3}{8} = \frac{5}{8}
+            \end{equation}
+            \item 
+            A melhor forma de visualizar isso, é a partir de uma tabela 
+            \begin{center}
+                \begin{tabular}{||c | c||} 
+                \hline
+                Moeda viciada & Moeda não-viciada \\ [0.5ex] 
+                \hline\hline
+                Cara, Cara & Cara, Cara \\ 
+                \hline
+                Cara, Cara & Cara, Coroa \\
+                \hline
+                Cara, Cara & Coroa, Cara \\
+                \hline
+                Cara, Cara & Coroa, Cara \\
+                \hline
+               \end{tabular}
+            \end{center}
+            Como pode ser observado, dos 5 casos, 4 possuem caras.
+        \end{enumerate}
+    \end{question}
+
+    %------Questao5--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Neste caso, como está se referindo a uma cor qualquer, precisamos calcular a chance de cair com a mesma cor 
+            nas duas caixas, e então somar a probabilidade de ambas
+            \[
+                \frac{5}{8} * \frac{2}{8} = \frac{10}{64}  
+            \]
+            \[
+                \frac{3}{8} * \frac{6}{8} = \frac{18}{64}  
+            \]
+            \begin{equation}
+                \frac{10}{64} + \frac{18}{64} = \frac{28}{64} \rightarrow \frac{7}{16}
+            \end{equation}
+            \item Agora, como vamos retirar duas bolas da mesma cor, precisamos da possibilidade de pegar a bola de determinada cor 
+            e então multiplicar pela probabilidade de pegar a mesma bola, porém assumindo que a primeira bola foi retirada, depois apenas somar 
+            o resultado:
+            \[
+                (\frac{5}{8} * \frac{4}{7}) * (\frac{2}{8} * \frac{1}{7}) = \frac{20}{56} * \frac{2}{56} = \frac{40}{3136}
+            \]
+            \[
+                (\frac{3}{8} * \frac{2}{7}) * (\frac{6}{8} * \frac{5}{7}) = \frac{6}{56} * \frac{30}{56} =  \frac{180}{3136} 
+            \]
+            \begin{equation}
+                (\frac{40}{3136} + \frac{180}{3136} )  = \frac{220}{3136} \rightarrow \frac{55}{784}
+            \end{equation}
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao6--------------------------------------------------------------------------------%
+    \newpage
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Primeiro é preciso considerar que antes de fazer a segunda 
+            retirada, uma bola é retirada e duas bolas da cor contrária a retirada é adicionada,
+            logo, precisamos fazer essa probabilidade e logo somar ambos os casos: 
+            \[
+                (\frac{5}{8} * \frac{4}{9}) + (\frac{3}{8} * \frac{7}{9})  
+            \]
+            \begin{equation}
+                (\frac{20}{72}) + (\frac{21}{72}) = \frac{41}{72}
+            \end{equation}
+            \item Seguindo uma lógica parecida com a anterior, agora temos que fazero cálculo, só que 
+            agrupando as possibilidades de bolas da mesma cor 
+            \[
+                (\frac{5}{8} * \frac{4}{9}) + (\frac{3}{8} * \frac{2}{9})  
+            \]
+            \begin{equation}
+                (\frac{20}{72}) + (\frac{6}{72}) = \frac{26}{72} \rightarrow \frac{13}{36}
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao7--------------------------------------------------------------------------------%
+
+    \begin{figure}[ht]
+        \centering 
+        \includegraphics[scale=0.2]{tabela.png}
+        \caption{Distribuição usada como referência para resolução das próximas questões que envolvem binômio}
+    \end{figure}
+
+    \newpage
+
+    \begin{question}
+
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item 
+            \[
+                P (7,48 < x < 7,52) = F(1,5) - F(2,5) 
+            \]
+            \[
+                F(1,5) - F(2,5) = 0,9332 - 0,0062 = 0,9270
+            \]
+
+            \item 
+            \[
+                Binomial(n = 4; P= 0.9270)
+            \]
+            \begin{align*}
+                P(x \geq 3) P(x=3) + P(x=4) = 0.9711 
+            \end{align*}
+            \item 
+            \[
+                Binomial(n = 10; P= 0.0730)
+            \]
+            \begin{equation}
+                P(x = 3) = 10!(3!*3!)*0.07303*0.92707 = 0.0275 
+            \end{equation}
+        \end{enumerate}
+        
+    \end{question}
+
+     %------Questao8--------------------------------------------------------------------------------%
+
+    \begin{question}
+        
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item 
+            \hspace*{5pt}
+            \begin{enumerate}[label={a\arabic{enumii})}]
+                \item 
+                \begin{align*}
+                    P(X < 700) = F(1.25) \\ 
+                    F(1.25) = 0.8944
+                \end{align*}
+                \begin{equation}
+                    P(X > 700)  = 1 - P(X \leq 700) = 0.1056
+                \end{equation}
+                \item 
+                \begin{equation}
+                    P(X < 200) = F(-2.92) = 0.0018
+                \end{equation}
+                \item
+                \begin{align*}
+                    P(200 < X < 700) = P(X < 700) - (X \leq 200) \\
+                    F(1.25) - F(-2.92) = 0.8926
+                \end{align*}
+            \end{enumerate}
+            \item 
+            \begin{align*}
+                P(X0<X<X1) = 0.85 \\ 
+                -1.44 = (X0 - 550) / 120 \\ 
+                X0 = 550 - 1.44*120=377.2 \\ 
+                1.44 = (X1 - 550) / 120 \\ 
+                X1 = 550 + 1.44*120 = 7
+            \end{align*}
+            \item 
+            \begin{align*}
+                1.645 = (X-550)/120 \\ 
+                X0 = 550 + 1.645*120=747.4
+            \end{align*}
+        \end{enumerate}
+
+    \end{question}
+
+     %------Questao9--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item 
+            \[
+                P(X >10) = 1 - F(-2.39)    
+            \]
+            \[
+                1 - 0.0084 = 0.9916 
+            \]
+            \[
+                X0 = \frac{10-11.53}{0.64} = -2.39
+            \]
+            \item 
+            \[
+                P(10 < X < 12) = F(12) - F(10) = F(0.73) - F(-2.39) 
+            \]
+            \[
+                0,7673 -0,0084 = 0.7589
+            \]
+            \[
+                X0 = \frac{10-11.53}{0.64} = -2.39
+            \]
+            \item
+            \[
+                \frac{X0-11.53}{0.64} = 0.84    
+            \]  
+            \begin{equation}
+                X0 = 11.53 + 0.84 * 0.64 = 12.07
+            \end{equation}
+            \item 
+            \[
+                X0 = 11.53 -1.96 * 0.64 = 10.28  
+            \]  
+            \[
+                \frac{X1-11.53}{0.64} = 1.96    
+            \]  
+            \begin{equation}
+                X1 = 11.53 + 1.96 * 0.64 = 12.78
+            \end{equation}
+        \end{enumerate}
+
+    \end{question}
+
+     %------Questao10--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item
+            \[
+                P(X>100) = e^{-\lambda * x}   
+            \]
+            \begin{equation}
+                e^{\frac{1}{100*200}} = 0.6065
+            \end{equation}
+            \item Colocando dados 
+            \begin{center}
+                Binominal(N = 6, P = 0.6065) \\ 
+            \end{center}
+
+            \begin{align*}
+                P(X=4) =6C_4*0.6065^{4}*0.3935^{2}=0.31427 \\
+                P(X=5) =6C_5*0.6065^{5}*0.3935^{1}=0.19375 \\
+                P(X=6) =6C_6*0.6065^{6}*0.3935^{0}=0,04977 \\
+            \end{align*}
+
+            \begin{equation}
+                P(X>3) = 0.31427 + 0.19375 + 0,04977 = 0,5578
+            \end{equation}
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao11--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{align*}
+            P(X > 22) + P(X < 18) \\ 
+            P(X > 22) = P(Z > \frac{22 - 21}{\sqrt{0.9}}) = P(Z > 1.0541) \\ 
+            P(X < 18) = P(Z < \frac{18-21}{\sqrt{0.9}}) = P(Z < -3.1622) \\ 
+            P(\text{não defeituosa}) = 0.86650 - 0.0004 = 0.8661 \\ 
+            P(\text{defeituosa}) = 1 - P(\text{não defeituosa}) = 0.137 \rightarrow 13.39\%
+        \end{align*}
+
+        Ao implementar o novo processo, a proporção de itens defeituosos irá cair de 30\% 
+        para 13.39\%, portanto, recomenda-se fazer a troca.
+    \end{question}
+     %------Questao12--------------------------------------------------------------------------------%
+
+    \begin{question}
+
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{5!}{5!(5-5)!} * 0.8^{5}*(1-0.8)^{0} = 0.32768\%
+            \end{equation}
+            \item 
+            \[
+                \frac{5!}{0!(5-0)!} * 0.8^{0}*(1-0.8)^{5} = 0.00032\%
+            \]
+
+            \[
+                \frac{5!}{1!(5-1)!} * 0.8^{5}*(1-0.8)^{4} = 0.0064\%
+            \] 
+
+            \begin{equation}
+                1-(0.00032\% - 0.0064\%) = 99.328\%
+            \end{equation}
+
+            \item Mesma resolução da letra \textbf{b)}
+        \end{enumerate}
+        
+    \end{question}
+
+     %------Questao13--------------------------------------------------------------------------------%
+
+    \begin{question}
+        
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{8!}{4!(8-4)!} * 0.5^{4}*(1-0.5)^{4} = 0.273\%
+            \end{equation}
+            \item 
+            \[
+                \frac{8!}{0!(8-0)!} * 0.5^{0}*(1-0.5)^{8} = 0.003906
+            \]
+
+            \[
+                \frac{8!}{1!(8-1)!} * 0.5^{1}*(1-0.5)^{7} = 0.03515
+            \]
+
+            \begin{equation}
+                1-(0.0003906\% - 0.03515\%) = 96.484\%
+            \end{equation}
+
+            \item  
+            \begin{equation}
+                \frac{8!}{0!(8-0)!} * 0.5^{0}*(1-0.5)^{8} = 0.003906\%
+            \end{equation}
+
+            \item  
+            \begin{equation}
+                \frac{8!}{3!(8-3)!} * 0.5^{3}*(1-0.5)^{5} = 0,2185\% \rightarrow 21.875\%
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+    %------Questao14--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{10!}{0!(10-0)!} * 0.03^{0}*(1-0.03)^{10} = 0.73742
+            \end{equation}
+            \item 
+            \begin{equation}
+                (\frac{10!}{5!(10-5)!} * 0.03^{5}*(1-0.03)^{5})*100 = 0.00052
+            \end{equation}
+
+            \item 
+            \[
+                \frac{10!}{1!(10-1)!} * 0.03^{1}*(1-0.03)^{9} = 0.228
+            \]
+
+            \begin{equation}
+                1-(73.74\%+22.8\%) = 3.451\%
+            \end{equation}
+
+            \item Resolução em tabela
+            \begin{equation}
+                \frac{10!}{3!(10-3)!} * 0.03^{3}*(1-0.03)^{7} = 0.2617
+            \end{equation}
+            
+            \begin{center}
+                \begin{tabular}{||c | c||} 
+                \hline
+                0 & 73.74\% \\ [0.5ex] 
+                \hline
+                1 & 22.8\% \\ 
+                \hline
+                2 & 3.174\% \\
+                \hline
+                3 & 0.2617\% \\
+                \hline
+                Soma & 99.985\% \\
+                \hline
+               \end{tabular}
+            \end{center}
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao15--------------------------------------------------------------------------------%
+    \newpage 
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                (\frac{6!}{0!(6-0)!} * 0.3^{0}*(1-0.3)^{6})*100 = 11.765\%
+            \end{equation}
+            \item 
+            \[
+                (\frac{6!}{1!(6-1)!} * 0.3^{1}*(1-0.3)^{5})*100 = 30.2526\%
+            \]
+            \begin{equation}
+                1-(30.25\%+11.76\%) = 57.98\%
+            \end{equation}
+
+        \end{enumerate}
+    \end{question}
+
+     %------Questao16--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{e^{-5}*5^{0}}{0!} * 100 = 0.673\%
+            \end{equation}
+            \item 
+                
+            \begin{equation}
+                \frac{e^{-10}*10^{2}}{2!} * 100 = 0.23\%
+            \end{equation}
+
+            \item 
+                
+            \[
+                0.673 + \frac{e^{-5}*5^{1}}{1!} + 0.23 +
+            \]
+
+            \[
+                \frac{e^{-5}*5^{3}}{3!} +
+            \]
+            
+            \[
+                \frac{e^{-5}*5^{4}}{4!} +
+            \]
+        
+            \[
+                \frac{e^{-5}*5^{5}}{5!} +
+            \]
+
+            \[
+                \frac{e^{-5}*5^{6}}{6!} +
+            \]
+
+            \[
+                \frac{e^{-5}*5^{7}}{7!} = 
+            \]
+            \[
+                86.66\%
+            \]
+
+        \end{enumerate}
+    \end{question}
+
+    %------Questao17--------------------------------------------------------------------------------%
+    \newpage 
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                P(X = 8) = \frac{e^{-5}*5^{8}}{8!} = 0.065278
+            \end{equation}
+            \item        
+            \begin{equation}
+                P(2 < X \leq 6) = P(X=3) + P(X=4) + P(X=5) + P(X=6) = 0.6375
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao18--------------------------------------------------------------------------------%
+
+    \begin{question}
+        
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{e^{-5}*5^{0}}{0!} = 0.673
+            \end{equation}
+            \item 
+                
+            \[
+                \frac{e^{-5}*5^{1}}{1!} = 3.368
+            \]
+
+            \[
+                \frac{e^{-5}*5^{2}}{2!} = 8.4224
+            \]
+
+            \begin{equation}
+                1-(0.673+3.368 + 8.422) = 87.53\%
+            \end{equation}
+            
+            \begin{equation}
+                \frac{e^{-5}*6^{5}}{5!}*100 = 16.06\%
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao19--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{e^{-8}*8^{5}}{5!} * 100 = 9.160
+            \end{equation}
+            \item 
+                
+            \[
+                \frac{e^{-4.48}*4.48^{0}}{0!} * 100 = 1.33\% +
+            \]
+
+            \[
+                \frac{e^{-4.48}*4.48^{1}}{1!} * 100 = 5.077\% +
+            \]
+
+            \[
+                \frac{e^{-4.48}*4.48^{1}}{1!} * 100 = 11.37\% +
+            \]
+
+            \begin{equation}
+                1-(17.36) = 82.64\%
+            \end{equation}
+        
+        \end{enumerate}
+    \end{question}
+
+     %------Questao20--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                \frac{e^{-4}*4^{0}}{0!} * 100 = 1.83\%
+            \end{equation}
+            \item 
+            \[
+                P(X=0) = \frac{e^{-3}*3^{0}}{0!} = 0,0498
+            \]
+            \[
+                P(X=1) = \frac{e^{-3}*3^{1}}{1!} = 0,1494
+            \]
+            \[
+                P(X=2) = \frac{e^{-3}*3^{2}}{2!} = 0,2240
+            \]
+            \[
+                P(X=3) = \frac{e^{-3}*3^{3}}{3!} = 0,2240
+            \]
+            \begin{equation} 
+               0.0498 + 0.1494 + 0.2240 + 0.2240 = 0.6472
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao21--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+                P(X=0) = \frac{e^{-4}*4^{0}}{0!} = 0,0183
+            \end{equation}
+            \item
+            \begin{align*}
+                P(X=0) = \frac{e^{-4}*4^{0}}{0!} = 0,0183 \\ 
+                P(X=1) = \frac{e^{-4}*4^{1}}{1!} = 0,0732 \\ 
+                P(X=2) = \frac{e^{-4}*4^{2}}{2!} = 0,1465 \\
+            \end{align*}
+            \begin{equation}
+                1 - (0.0183 + 0.0732 + 0.1465) = 0.7619\%
+            \end{equation}
+            \item  
+            \[
+                P(X=0) = \frac{e^{-2.5}*2.5^{0}}{0!} = 0.0821
+            \] 
+            \begin{equation}
+                0.0821 * 80 = \text{6,568 dias}
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao22--------------------------------------------------------------------------------%
+    \newpage 
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Considere que são 10 questões com a possibilidade de marcar apenas duas opções
+            logo 50\% de chance de marcar verdadeiro ou falso. Agora, é só pegar essa lógica e aplicar a uma permutação
+            \begin{equation}
+                (\frac{1}{2})^{10} * \frac{10!}{5!*5!} = 0.2461
+            \end{equation}
+            \item Neste caso, como temos mais de um caso(8 corretas, 9 corretas e 10 corretas), é preciso fazer para cada caso 
+            separado, e então fazer a soma de todos os casos.
+            \[
+                (\frac{1}{2})^{10} * \frac{10!}{8!*2!} = 0,043945312
+            \]
+            \[
+                (\frac{1}{2})^{10} * \frac{10!}{9!*1!} = 0,009765625
+            \]
+            \[
+                (\frac{1}{2})^{10} = 0,000976562
+            \]
+            \begin{equation}
+                0,043945312 + 0,009765625 + 0,000976562 = 0,05469
+            \end{equation}
+        \end{enumerate}
+
+    \end{question}
+
+     %------Questao23--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \begin{equation}
+               P(X\leq20) = 1 - e^{-2} = 0.8647
+            \end{equation}
+            \item 
+            \begin{equation}
+                P(X>10) = e^{-1} = 0.3679
+             \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao24--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{center}
+            N = 26; A = 5; n = 6; x = 2 
+        \end{center}
+        \[
+          P(X=2) = \frac{6*495}{8008}  
+        \]
+        \begin{equation}
+            P(X=2) = 0.3709
+        \end{equation}
+    \end{question}
+
+     %------Questao25--------------------------------------------------------------------------------%
+
+    \begin{question}
+
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \[
+                0.6^{5} = 0.07776
+            \]
+    
+            \[
+                \frac{0.4 * 0.6^{4} * 5! }{1!*4!} = 0.2592
+            \]
+    
+            \begin{equation}
+                1-(0.07776 + 0.2592) = 0.6630
+            \end{equation}
+            \item        
+            \[
+                P(X=4) = \frac{4!}{4!(5-4)!} * (\frac{40}{100})^{4} * (1-\frac{40}{100})^{4-4}
+            \]
+    
+            \[
+                P(X=4) = 0.0256
+            \]
+    
+            \begin{equation}
+                1 - 0.0256 = 0.9744
+            \end{equation}
+        \end{enumerate}
+        
+    \end{question}
+
+     %------Questao26--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item        
+            \[
+                P(X=2) = \frac{e^{-2}*2^{2}}{2!}  
+            \]
+            \begin{equation}
+                P(X=2) = 0.2707
+            \end{equation}
+            \item        
+            \[
+                P(X=0) = \frac{e^{-4}*4^{0}}{0!} \rightarrow 0.01832
+            \]
+            \[
+                P(X=1) = \frac{e^{-4}*4^{1}}{1!} \rightarrow 0.07326
+            \]
+            \[
+                P(X=2) = \frac{e^{-4}*4^{2}}{2!} \rightarrow 0.14653
+            \]
+            \begin{equation}
+                1 - (0.01832 + 0.07326 + 0.14653) = 0,7619
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao27--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Colocando os dados 
+            \begin{center}
+                n=10, P=1/2, x=5
+            \end{center}      
+            \[
+                P(X=5) = \frac{10!}{5!(10-5)!} * (\frac{1}{2})^{5}*(1-\frac{1}{2})^{10-5}
+            \]
+            \begin{equation}
+                P(X=2) = 0.2461
+            \end{equation}
+            \item Colocando os dados 
+            \begin{center}
+                n=10, P=1/2, x=8
+            \end{center}     
+            \[
+                P(X=8) = \frac{10!}{8!(10-8)!} * (\frac{1}{2})^{8}*(1-\frac{1}{2})^{10-8}
+            \]
+            \[
+                P(X=8) = 0.4394
+            \]
+            \begin{center}
+                n=10, P=1/2, x=9
+            \end{center}     
+            \[
+                P(X=9) = \frac{10!}{9!(10-9)!} * (\frac{1}{2})^{9}*(1-\frac{1}{2})^{10-9}
+            \]
+            \[
+                P(X=9) = 0.00976
+            \]
+            \begin{center}
+                n=10, P=1/2, x=10
+            \end{center}     
+            \[
+                P(X=10) = \frac{10!}{10!(10-10)!} * (\frac{1}{2})^{10}*(1-\frac{1}{2})^{10-10}
+            \]
+            \[
+                P(X=9) = 0.00097
+            \]
+
+            \begin{equation}
+                0.4394 + 0.00976 + 0.00097 = 0.45013
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao28--------------------------------------------------------------------------------%
+
+    \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item 
+            \[
+                P(X \leq 3) = 1 - e^{3}   
+            \]
+            \begin{equation}
+                1 - 0.0497 = 0.9503 
+            \end{equation}
+            \item 
+            \[
+                P(2 < X < 5) = e^{-2} - e^{5}   
+            \]
+            \begin{equation}
+                0.13533 -0.00673 = 0.1286
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+     %------Questao29--------------------------------------------------------------------------------%
+
+     \begin{question}
+        \begin{enumerate}[label={\textbf{\alph*)}}]
+            \item Considerando que são 4 meninas, e que a cada vez que é selecionado mais uma, sempre precisa 
+            levar que uma foi retirada anteriormente, podemos então fazer por meio de multiplicação:
+            \begin{equation}
+                \frac{4}{7} * \frac{3}{6} * \frac{2}{5} = \frac{24}{210} \rightarrow \frac{4}{35} \text{  ou  } 0.11\%
+            \end{equation}
+            \item Aplicando a mesma lógica da letra \textbf{a)}, podemos encontrar o resultado a partir de multiplicação.
+            \begin{equation}
+                \frac{5}{13} * \frac{4}{12} * \frac{3}{11} = \frac{60}{1716} \rightarrow 0.0350
+            \end{equation}
+        \end{enumerate}
+    \end{question}
+
+\end{document}
