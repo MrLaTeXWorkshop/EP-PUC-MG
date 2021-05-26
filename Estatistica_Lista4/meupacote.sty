@@ -1,0 +1,139 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{meupacote}[2014/08/24 Example LaTeX package]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[brazil]{babel}
+\RequirePackage{hyperref}
+\RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\RequirePackage{pgfplots}
+\RequirePackage{enumitem}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{import}
+
+\newcounter{instn}
+\setcounter{instn}{1}
+\newcommand{\instnum}{\arabic{instn}}
+
+\newcommand{\myline}[1]{
+    Questão \emph{\textbf{#1)}}
+    \addtocounter{instn}{1}
+}
+
+
+\newenvironment{formula1}[5]{
+
+    $S_x$ = #1
+
+    $S_y$ = #2
+
+    ${S_x}^2$ = #3
+
+    ${S_y}^2$ = #4
+
+    $S_{xy}$ = #5
+
+}
+
+\newenvironment{formula2}[8]{
+
+    IC(#1\%)= $\hat{y}$ $\pm$ $\tau_\frac{\alpha}{2}$ ; $\times$ n-2 $\times$ $S_e$ $\times$  $\sqrt{1 + \frac{1}{n} + \frac{n(X_0 - \bar{X})^2}{S_{xx}}}$
+                  
+    IC(#1\%) = #2 $\pm$ #3 $\times$ (#4 $\times$ $\sqrt{1 + \frac{1}{#5} + \frac{#5 (#6 - #7)^2} {#8 } })$
+}
+
+\newenvironment{formula3}[8]{
+
+    IC(#1\%)= $\hat{y}$ $\pm$ $\tau_\frac{\alpha}{2}$ ; $\times$ n-2 $\times$ $S_e$ $\times$  $\sqrt{\frac{1}{n} + \frac{n(X_0 - \bar{X})^2}{S_{xx}}}$
+                  
+    IC(#1\%) = #2 $\pm$ #3 $\times$ (#4 $\times$ $\sqrt{\frac{1}{#5} + \frac{#5 (#6 - #7)^2} {#8 } })$
+}
+
+\newenvironment{formula4}[5]{
+
+    IC(#1)\% = #2 $\pm$ #3
+
+    IC(#1)\% = [#4 ; #5]
+
+}
+
+\newenvironment{formula5}[5]{
+
+    Corr(x,y) = $\frac{S_{xy}}{\sqrt{S_{xx} \times S_{yy}}}$
+
+    Corr(x,y) = $\frac{#1}{\sqrt{#2 \times #3}}$
+
+    Corr(x,y) = $\frac{#1}{#4}$
+
+    Corr(x,y) = #5
+
+}
+
+\newenvironment{formula6}[6]{
+
+    $S_{xx}$ = $n \times \sum x^2 - (\sum x)^2$
+
+    $S_{xx}$ = #1 $\times$ #2 - $(#3)^2$
+
+    $S_{xx}$ = #4 - #5
+
+    $S_{xx}$ = #6
+}
+
+\newenvironment{formula7}[6]{
+
+    $S_{yy}$ = $n \times \sum y^2 - (\sum y)^2$
+
+    $S_{yy}$ = #1 $\times$ #2 - $(#3)^2$
+
+    $S_{yy}$ = #4 - #5
+
+    $S_{yy}$ = #6
+}
+
+\newenvironment{formula8}[5]{
+
+    $S_{xy}$ = $n \times \sum xy - (\sum x)(\sum y)$
+
+    $S_{xy}$ = #1 $\times$ #2 - #3
+
+    $S_{xy}$ = #4 - #3
+
+    $S_{xy}$ = #5
+}
+
+\newenvironment{formula9}[6]{
+
+    $\hat{\beta}1$ = $\frac{S_{xy}}{S_{xx}}$
+
+    $\hat{\beta}1$ = $\frac{#1}{#2} = #3$
+
+    $\hat{\beta}0$ = $\hat{y}$ - $\hat{\beta}1$ $\times$ $\bar{x}$
+
+    $\hat{\beta}0$ = #4 - (#3) $\times$ #5
+
+    $\hat{\beta}0$ = #6
+}
+
+\newenvironment{formula10}[8]{
+
+    $S_e$ = $\sqrt{\frac{\sum y^2 - \hat{\beta}0 \sum y - \hat{\beta}1 \sum xy}{n-2}}$
+
+    $S_e$ = $\sqrt{\frac{#1 - (#2 \times #3) + (#4 \times #5)}{#6}}$
+
+    $S_e$ = $\sqrt{\frac{#7}{#6}}$
+
+    $S_e$ = #8
+}
+
+\newenvironment{formulaA}[4] {
+    $\hat{y}$ = $\hat{\beta}0$ + $\hat{\beta}1$ $\times$ n = #1 + #2 $\times$ #3 = #4
+}
+
+
+\newenvironment{question}
+ {
+    \myline{\instnum} 
+    }
+    {
+ }
