@@ -10,6 +10,8 @@
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
 \RequirePackage{import}
+\RequirePackage{color}			      % Controle das cores
+\RequirePackage{xcolor}
 
 \newcounter{instn}
 \setcounter{instn}{1}
@@ -119,7 +121,7 @@
 
     $S_e$ = $\sqrt{\frac{\sum y^2 - \hat{\beta}0 \sum y - \hat{\beta}1 \sum xy}{n-2}}$
 
-    $S_e$ = $\sqrt{\frac{#1 - (#2 \times #3) + (#4 \times #5)}{#6}}$
+    $S_e$ = $\sqrt{\frac{#1 - (#2 \times #3) - (#4 \times #5)}{#6}}$
 
     $S_e$ = $\sqrt{\frac{#7}{#6}}$
 
@@ -127,7 +129,11 @@
 }
 
 \newenvironment{formulaA}[4] {
-    $\hat{y}$ = $\hat{\beta}0$ + $\hat{\beta}1$ $\times$ n = #1 + #2 $\times$ #3 = #4
+    $\hat{y}$ = $\hat{\beta}0$ + $\hat{\beta}1$ $\times$ n 
+
+    $\hat{y}$ = #1 + (#2) $\times$ #3 
+
+    $\hat{y}$ = #4
 }
 
 
